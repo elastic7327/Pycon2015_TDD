@@ -6,9 +6,18 @@
 </head>
 
 <body>
+
 	<h1>To-Do lists yay!</h1>
-	<input id="id_new_item" placeholder="Enter a to-do item">To-Do lists yay!</>
-	<table id="id_list_table"></table>
+
+	<form method="POST">
+		<input id="id_new_item" name="item_text" placeholder="Enter a to-do item">To-Do lists yay!</>
+		{% csrf_token %}
+	</form>
+
+	<table id="id_list_table">
+		<tr><td>1: {{hme_item_text}}</td></tr>
+	</table>
+
 </body>
 
 </html>
