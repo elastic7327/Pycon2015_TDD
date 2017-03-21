@@ -25,14 +25,10 @@ class HomePageViewTest(TestCase):
         response = home_page(request)
         exptected_content = render_to_string(
                 'home.html',
-                {'new_item_text':'new item'}
+                {'new_item_text': 'new item'}
         )
 
         self.assertEqual(
-                response.content.decode('utf8'), 
+                response.content.decode('utf8'),
                 exptected_content
         )
-
-
-
-    
