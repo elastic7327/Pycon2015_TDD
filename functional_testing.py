@@ -16,7 +16,6 @@ class HomePageTest(unittest.TestCase):
     def test_can_start_a_list_and_retrive_it_later(self):
         self.browser.get("http://localhost:8000")
         self.assertIn("To-Do",  self.browser.title)
-        self.fail("finsh the test!")
         header = self.browser.find_element_by_tag_name('h1')
         self.assertIn("To-Do", header.text)
         inputbox = self.browser.find_element_by_id("id_new_item")
@@ -25,28 +24,17 @@ class HomePageTest(unittest.TestCase):
                 'Enter a to-do item'
         )
         inputbox.send_keys("Buy peacock feathers")
-        inputbox.send_keys("\n") # Enter things
+        #
+        #
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_element_by_tag_name('tr')
+        self.assertTrue(
+                any(row.text == '1: Buy peacock feathers' for row in rows)
+        )
         #
         #
         #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #self.fail("Finish the test!!")
+        self.fail("Finish the test!!")
 
 
 if __name__ == "__main__":
